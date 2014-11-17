@@ -5,18 +5,25 @@ function printInventory(inputs) {
   var end = '**********************';
   var segmentLine = '----------------------\n';
   var middle = '';
+  var total = 0;
   var allItems = loadAllItems();
-  var item;
-  for(var i in allItems){
-    if(allItems[i].barcode === inputs[0]){
-      item = allItems[i];
-      middle +=  '名称：'+ item.name +
-                 '，数量：1' + item.unit +
-                 '，单价：' + item.price.toFixed(2) + '(元)，小计：' +
-                 item.price.toFixed(2) + '(元)\n';
+  for(var j in inputs){
+    var input = inputs[j];
+    var item;
+    for(var i in allItems){
+      if(allItems[i].barcode === input){
+        item = allItems[i];
+        middle +=  '名称：'+ item.name +
+                   '，数量：1' + item.unit +
+                   '，单价：' + item.price.toFixed(2) + '(元)，小计：' +
+                   item.price.toFixed(2) + '(元)\n';
+        total += item.price;
+      }
+
     }
   }
-  var totalString = '总计：' + item.price.toFixed(2) + '(元)\n';
+
+  var totalString = '总计：' + total.toFixed(2) + '(元)\n';
   var output = start + middle+segmentLine + totalString +end;
   console.log(output);
 
