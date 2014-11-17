@@ -30,11 +30,9 @@ function printInventory(inputs) {
     }else{
       subtotal += num*item.price;
     }
-    
-    subtotalString +=  '名称：'+ item.name +
-                   '，数量：'+num + item.unit +
-                   '，单价：' + item.price.toFixed(2) + '(元)，小计：' +
-                   subtotal.toFixed(2) + '(元)\n';
+
+    subtotalString +=  '名称：'+ item.name +'，数量：'+num + item.unit +
+                       '，单价：' + item.price.toFixed(2) + '(元)，小计：' +subtotal.toFixed(2) + '(元)\n';
     total += subtotal;
   }
   totalString = '总计：' + total.toFixed(2) + '(元)\n';
