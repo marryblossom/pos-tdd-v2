@@ -1,4 +1,5 @@
 function itemHandle(){
+  var util = new utils();
   this.item = function getItemWithBarCode(barCode){
     var allItems = loadAllItems();
     var item = '';
@@ -18,7 +19,7 @@ function itemHandle(){
     while(index<input.length){
        var simple = input[index];
        if(input[index].indexOf(oneItem) == -1){
-        array.push(input[index]);
+         array.push(util.manageString(input[index],'-'));
          oneItem = simple;
        }
       index++;
