@@ -21,7 +21,6 @@ function printInventory(inputs) {
     var subtotal = 0;
     if(promotionHand.promotionTypes(item.barcode).length !== 0){
       var promotionTypes = promotionHand.promotionTypes(item.barcode);
-
       for(var i in promotionTypes){
         subtotal += promotionHand.getPromption(promotionTypes[i],num,item.price);
         freeString += '名称：' + item.name + '，数量：' + promotionHand.freeNum(promotionTypes[i],num) + item.unit+"\n";
@@ -31,6 +30,7 @@ function printInventory(inputs) {
     }else{
       subtotal += num*item.price;
     }
+    
     subtotalString +=  '名称：'+ item.name +
                    '，数量：'+num + item.unit +
                    '，单价：' + item.price.toFixed(2) + '(元)，小计：' +
